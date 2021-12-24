@@ -123,7 +123,7 @@ namespace forBuf
                     strText = strText.Replace(Slug, "");
                     Clipboard.SetText(strText);
 
-                    tBox1.AppendText("get buff ok" + Environment.NewLine);
+                    add_text("get buff ok");
                 }
 
                 if (strText.Contains("fileInBase64="))
@@ -157,7 +157,7 @@ namespace forBuf
 
                     File.WriteAllBytes(file, Convert.FromBase64String(strText));
 
-                    tBox1.AppendText("download file ok" + Environment.NewLine);
+                    add_text("download file ok");
                 }
 
             }
@@ -202,13 +202,25 @@ namespace forBuf
                 WebClient client = new WebClient();
                 var path = String.Format("http://{0}:80", ip);
                 client.UploadData(path, "POST", Encoding.UTF8.GetBytes(String.Format("key={0},clipboard={1}", key, Clipboard.GetText())));
-                tBox1.AppendText("set buf ok" + Environment.NewLine);
+                add_text("set buf ok");
 
             }
             catch (Exception ex)
             {
                 tBox1.Text += ex.ToString();
             }
+        }
+
+        public static void add_text(String text)
+        {
+            if (tBox1.Lines.Length > 20)
+                tBox1.Text = "";
+
+            tBox1.Text += String.Format("[{0}:{1}:{2}] {3}", 
+                    DateTime.Now.Hour.ToString(), 
+                    DateTime.Now.Minute.ToString(),
+                    DateTime.Now.Second.ToString(),
+                    text + Environment.NewLine);
         }
 
         // SET
