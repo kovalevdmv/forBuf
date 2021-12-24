@@ -1,0 +1,10 @@
+C:\Users\koval\source\repos\forBuf\forBuf\obj\Debug\forBuf.Form1.resources
+C:\Users\koval\source\repos\forBuf\forBuf\obj\Debug\forBuf.Properties.Resources.resources
+C:\Users\koval\source\repos\forBuf\forBuf\obj\Debug\forBuf.csproj.GenerateResource.cache
+C:\Users\koval\source\repos\forBuf\forBuf\obj\Debug\forBuf.csproj.CoreCompileInputs.cache
+C:\Users\koval\source\repos\forBuf\forBuf\bin\Debug\forBuf.exe.config
+C:\Users\koval\source\repos\forBuf\forBuf\bin\Debug\forBuf.exe
+C:\Users\koval\source\repos\forBuf\forBuf\bin\Debug\forBuf.pdb
+C:\Users\koval\source\repos\forBuf\forBuf\obj\Debug\forBuf.csproj.AssemblyReference.cache
+C:\Users\koval\source\repos\forBuf\forBuf\obj\Debug\forBuf.exe
+C:\Users\koval\source\repos\forBuf\forBuf\obj\Debug\forBuf.pdb
