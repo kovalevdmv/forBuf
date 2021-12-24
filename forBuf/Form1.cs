@@ -323,7 +323,7 @@ namespace forBuf
                 WebClient client = new WebClient();
                 var path = String.Format("http://{0}:80", ip);
                 client.UploadData(path, "POST", Encoding.UTF8.GetBytes(String.Format("key={0},fileInBase64Name={1},fileInBase64={2}", key, fileName, str_bin)));
-                textBox1.AppendText("upload file ok" + Environment.NewLine);
+                add_text("upload file ok");
 
             }
             catch (Exception ex)
