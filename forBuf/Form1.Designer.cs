@@ -138,6 +138,7 @@ namespace forBuf
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.closeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
             this.closeToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
             this.closeToolStripMenuItem.Text = "close";

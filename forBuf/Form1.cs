@@ -248,6 +248,18 @@ namespace forBuf
         {
             key = sender.ToString();
             set_sett();
+
+            
+
+            for (int i=0; i < contextMenuStrip1.Items.Count;i++)
+            {
+                var item = contextMenuStrip1.Items[i];
+                if (item.ToString() == key)
+                    item.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+                else
+                    item.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular);
+            }
+
         }
 
         private void button3_Click(object sender, EventArgs e)
