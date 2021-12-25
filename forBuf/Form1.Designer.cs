@@ -43,6 +43,7 @@ namespace forBuf
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoCopy = new System.Windows.Forms.CheckBox();
             this.autoPaste = new System.Windows.Forms.CheckBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,9 +110,10 @@ namespace forBuf
             this.setToolStripMenuItem,
             this.getToolStripMenuItem,
             this.showToolStripMenuItem,
-            this.closeToolStripMenuItem});
+            this.closeToolStripMenuItem,
+            this.toolStripSeparator1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(135, 148);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(135, 154);
             // 
             // setToolStripMenuItem
             // 
@@ -165,11 +167,17 @@ namespace forBuf
             this.autoPaste.UseVisualStyleBackColor = true;
             this.autoPaste.CheckedChanged += new System.EventHandler(this.autoPaste_CheckedChanged);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(131, 6);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(213, 468);
+            this.ContextMenuStrip = this.contextMenuStrip1;
             this.ControlBox = false;
             this.Controls.Add(this.autoPaste);
             this.Controls.Add(this.autoCopy);
@@ -203,6 +211,7 @@ namespace forBuf
         private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
         private System.Windows.Forms.CheckBox autoCopy;
         private System.Windows.Forms.CheckBox autoPaste;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 

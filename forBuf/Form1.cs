@@ -19,6 +19,7 @@ namespace forBuf
     {
         static String ip = "";
         static String key = "";
+        
 
         private static TextBox tBox1;
 
@@ -179,15 +180,29 @@ namespace forBuf
 
         }
 
+        private void set_sett()
+        {
+            notifyIcon1.Text = String.Format("{0}:{1}", ip, key);
+            Text = String.Format("Test ({0})", key);
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             try { 
-            var sett = File.ReadAllText("sett.txt");
-            ip = Regex.Match(sett, @"(?<=ip=)\S*").ToString();
-            key = Regex.Match(sett, @"(?<=key=)\S*").ToString();
+                var sett = File.ReadAllText("sett.txt");
+                ip = Regex.Match(sett, @"(?<=ip=)\S*").ToString();
+                key = Regex.Match(sett, @"(?<=key=)\S*").ToString();
+                String keylist = Regex.Match(sett, @"(?<=keylist=)\S*").ToString();
+                foreach(var i in keylist.Split(','))
+                {
+                    var item1 = new System.Windows.Forms.ToolStripMenuItem();
+                    item1.Name = i;
+                    item1.Text = i;
+                    item1.Click += new System.EventHandler(this.item_click);
+                    contextMenuStrip1.Items.Add(item1);
+                }
 
-                notifyIcon1.Text = String.Format("{0}:{1}",ip,key);
-                Text = String.Format("Test ({0})", key);
+                set_sett();
+                
             } catch (Exception ex) {
             
                 textBox1.Text += ex.ToString();
@@ -227,6 +242,12 @@ namespace forBuf
         private void button2_Click(object sender, EventArgs e)
         {
             set_buf();
+        }
+
+        private void item_click(object sender, EventArgs e)
+        {
+            key = sender.ToString();
+            set_sett();
         }
 
         private void button3_Click(object sender, EventArgs e)
