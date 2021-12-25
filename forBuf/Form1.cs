@@ -202,6 +202,8 @@ namespace forBuf
                 }
 
                 set_sett();
+
+                sett_forn_for_curr_item();
                 
             } catch (Exception ex) {
             
@@ -244,14 +246,9 @@ namespace forBuf
             set_buf();
         }
 
-        private void item_click(object sender, EventArgs e)
+        void sett_forn_for_curr_item()
         {
-            key = sender.ToString();
-            set_sett();
-
-            
-
-            for (int i=0; i < contextMenuStrip1.Items.Count;i++)
+            for (int i = 0; i < contextMenuStrip1.Items.Count; i++)
             {
                 var item = contextMenuStrip1.Items[i];
                 if (item.ToString() == key)
@@ -259,6 +256,17 @@ namespace forBuf
                 else
                     item.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular);
             }
+        }
+
+        private void item_click(object sender, EventArgs e)
+        {
+            key = sender.ToString();
+            set_sett();
+
+
+            sett_forn_for_curr_item();
+
+
 
         }
 
@@ -341,6 +349,11 @@ namespace forBuf
         private void autoPaste_CheckedChanged(object sender, EventArgs e)
         {
             check_huk();
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
         }
 
         private void button2_DragDrop(object sender, DragEventArgs e)
