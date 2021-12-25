@@ -56,7 +56,6 @@ namespace forBuf
         public static bool ctrl_c = false;
         public static bool ctrl_v = false;
 
-
         #endregion
 
         public Form1()
@@ -195,6 +194,7 @@ namespace forBuf
                 foreach(var i in keylist.Split(','))
                 {
                     var item1 = new System.Windows.Forms.ToolStripMenuItem();
+                    item1.Image = global::forBuf.Properties.Resources.security_protection_protect_key_password_login_108554;
                     item1.Name = i;
                     item1.Text = i;
                     item1.Click += new System.EventHandler(this.item_click);

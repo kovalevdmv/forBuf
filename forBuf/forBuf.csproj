@@ -84,5 +84,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\share_network_icon_172915.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\security-protection-protect-key-password-login_108554.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

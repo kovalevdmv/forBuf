@@ -59,5 +59,25 @@ namespace forBuf.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap security_protection_protect_key_password_login_108554 {
+            get {
+                object obj = ResourceManager.GetObject("security-protection-protect-key-password-login_108554", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap share_network_icon_172915 {
+            get {
+                object obj = ResourceManager.GetObject("share_network_icon_172915", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

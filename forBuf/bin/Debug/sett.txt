@@ -1,3 +1,3 @@
 ip=127.0.0.1
-key=pc06
-keylist=kvd,pc06
+key=kdv
+keylist=kdv,pc06
