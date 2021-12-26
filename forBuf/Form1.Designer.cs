@@ -67,7 +67,7 @@ namespace forBuf
             this.textBox1.Location = new System.Drawing.Point(12, 157);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(210, 263);
+            this.textBox1.Size = new System.Drawing.Size(210, 459);
             this.textBox1.TabIndex = 1;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -118,21 +118,21 @@ namespace forBuf
             // setToolStripMenuItem
             // 
             this.setToolStripMenuItem.Name = "setToolStripMenuItem";
-            this.setToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
+            this.setToolStripMenuItem.Size = new System.Drawing.Size(134, 36);
             this.setToolStripMenuItem.Text = "set";
             this.setToolStripMenuItem.Click += new System.EventHandler(this.setToolStripMenuItem_Click);
             // 
             // getToolStripMenuItem
             // 
             this.getToolStripMenuItem.Name = "getToolStripMenuItem";
-            this.getToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
+            this.getToolStripMenuItem.Size = new System.Drawing.Size(134, 36);
             this.getToolStripMenuItem.Text = "get";
             this.getToolStripMenuItem.Click += new System.EventHandler(this.getToolStripMenuItem_Click);
             // 
             // showToolStripMenuItem
             // 
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(134, 36);
             this.showToolStripMenuItem.Text = "show";
             this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
             // 
@@ -141,20 +141,20 @@ namespace forBuf
             this.closeToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.closeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(134, 36);
             this.closeToolStripMenuItem.Text = "close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(267, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(131, 6);
             // 
             // autoCopy
             // 
             this.autoCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.autoCopy.AutoSize = true;
-            this.autoCopy.Location = new System.Drawing.Point(12, 432);
+            this.autoCopy.Location = new System.Drawing.Point(12, 628);
             this.autoCopy.Name = "autoCopy";
             this.autoCopy.Size = new System.Drawing.Size(107, 29);
             this.autoCopy.TabIndex = 4;
@@ -166,7 +166,7 @@ namespace forBuf
             // 
             this.autoPaste.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.autoPaste.AutoSize = true;
-            this.autoPaste.Location = new System.Drawing.Point(125, 432);
+            this.autoPaste.Location = new System.Drawing.Point(125, 628);
             this.autoPaste.Name = "autoPaste";
             this.autoPaste.Size = new System.Drawing.Size(108, 29);
             this.autoPaste.TabIndex = 5;
@@ -178,7 +178,7 @@ namespace forBuf
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(234, 473);
+            this.ClientSize = new System.Drawing.Size(234, 669);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.ControlBox = false;
             this.Controls.Add(this.autoPaste);
