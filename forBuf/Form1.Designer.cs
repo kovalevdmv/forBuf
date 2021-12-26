@@ -51,7 +51,7 @@ namespace forBuf
             // 
             this.button1.Location = new System.Drawing.Point(12, 61);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(188, 43);
+            this.button1.Size = new System.Drawing.Size(210, 43);
             this.button1.TabIndex = 0;
             this.button1.Text = "get";
             this.button1.UseVisualStyleBackColor = true;
@@ -67,7 +67,7 @@ namespace forBuf
             this.textBox1.Location = new System.Drawing.Point(12, 157);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(189, 226);
+            this.textBox1.Size = new System.Drawing.Size(210, 263);
             this.textBox1.TabIndex = 1;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -76,7 +76,7 @@ namespace forBuf
             this.button2.AllowDrop = true;
             this.button2.Location = new System.Drawing.Point(12, 12);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(188, 43);
+            this.button2.Size = new System.Drawing.Size(210, 43);
             this.button2.TabIndex = 2;
             this.button2.Text = "set";
             this.button2.UseVisualStyleBackColor = true;
@@ -89,7 +89,7 @@ namespace forBuf
             this.button3.AutoSize = true;
             this.button3.Location = new System.Drawing.Point(12, 110);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(188, 41);
+            this.button3.Size = new System.Drawing.Size(210, 41);
             this.button3.TabIndex = 3;
             this.button3.Text = "to tray";
             this.button3.UseVisualStyleBackColor = true;
@@ -154,11 +154,11 @@ namespace forBuf
             // 
             this.autoCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.autoCopy.AutoSize = true;
-            this.autoCopy.Location = new System.Drawing.Point(12, 389);
+            this.autoCopy.Location = new System.Drawing.Point(12, 432);
             this.autoCopy.Name = "autoCopy";
-            this.autoCopy.Size = new System.Drawing.Size(123, 29);
+            this.autoCopy.Size = new System.Drawing.Size(107, 29);
             this.autoCopy.TabIndex = 4;
-            this.autoCopy.Text = "autoCopy";
+            this.autoCopy.Text = "auto set";
             this.autoCopy.UseVisualStyleBackColor = true;
             this.autoCopy.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
@@ -166,11 +166,11 @@ namespace forBuf
             // 
             this.autoPaste.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.autoPaste.AutoSize = true;
-            this.autoPaste.Location = new System.Drawing.Point(12, 427);
+            this.autoPaste.Location = new System.Drawing.Point(125, 432);
             this.autoPaste.Name = "autoPaste";
-            this.autoPaste.Size = new System.Drawing.Size(126, 29);
+            this.autoPaste.Size = new System.Drawing.Size(108, 29);
             this.autoPaste.TabIndex = 5;
-            this.autoPaste.Text = "autoPaste";
+            this.autoPaste.Text = "auto get";
             this.autoPaste.UseVisualStyleBackColor = true;
             this.autoPaste.CheckedChanged += new System.EventHandler(this.autoPaste_CheckedChanged);
             // 
@@ -178,7 +178,7 @@ namespace forBuf
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(213, 468);
+            this.ClientSize = new System.Drawing.Size(234, 473);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.ControlBox = false;
             this.Controls.Add(this.autoPaste);
