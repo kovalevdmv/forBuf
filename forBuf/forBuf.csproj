@@ -90,5 +90,8 @@
   <ItemGroup>
     <None Include="Resources\security-protection-protect-key-password-login_108554.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vcsupdaterequired_93493.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

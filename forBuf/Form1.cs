@@ -23,6 +23,10 @@ namespace forBuf
 
         private static TextBox tBox1;
 
+        String Dropfile = "";
+
+        ToolTip toolTipBtnUpdate;
+
         #region Библиотеки
         [DllImport("user32.dll")]
         static extern IntPtr SetWindowsHookEx(int idHook, LowLevelKeyboardProc callback, IntPtr hInstance, uint threadId);
@@ -71,8 +75,11 @@ namespace forBuf
             InitializeComponent();
 
             tBox1 = textBox1;
-            au_copy = autoCopy.Checked;
-            au_paste= autoPaste.Checked;
+            au_copy = false;
+            au_paste= false;
+
+            toolTipBtnUpdate = new ToolTip();
+            toolTipBtnUpdate.SetToolTip(buttonUdateLastFile, "Обновить последний файл" + Dropfile);
         }
 
         public static IntPtr hookProc(int code, IntPtr wParam, IntPtr lParam)
@@ -326,7 +333,8 @@ namespace forBuf
 
         private void check_huk()
         {
-            if (autoCopy.Checked || autoPaste.Checked)
+            //if (autoCopy.Checked || autoPaste.Checked)
+            if (autoCopy.Checked)
             {
                 IntPtr hInstance = LoadLibrary("User32");
                 hhook = SetWindowsHookEx(WH_KEYBOARD_LL, _proc, hInstance, 0);
@@ -337,7 +345,8 @@ namespace forBuf
             }
 
             au_copy = autoCopy.Checked;
-            au_paste = autoPaste.Checked;
+            //au_paste = autoPaste.Checked;
+            au_paste = autoCopy.Checked;
 
         }
 
@@ -356,15 +365,14 @@ namespace forBuf
 
         }
 
-        private void button2_DragDrop(object sender, DragEventArgs e)
+        void set_file(String file)
         {
-            
             try
             {
-                var file = (string[])e.Data.GetData(DataFormats.FileDrop);
-                var mf = file[0].Split('\\');
+                //var file = (string[])e.Data.GetData(DataFormats.FileDrop);
+                var mf = file.Split('\\');
                 var fileName = mf[mf.Length - 1];
-                var str_bin = Convert.ToBase64String(File.ReadAllBytes(file[0]));
+                var str_bin = Convert.ToBase64String(File.ReadAllBytes(file));
 
                 WebClient client = new WebClient();
                 var path = String.Format("http://{0}:80", ip);
@@ -375,6 +383,26 @@ namespace forBuf
             catch (Exception ex)
             {
                 textBox1.Text += ex.ToString();
+            }
+        }
+
+        private void buttonUdateLastFile_Click(object sender, EventArgs e)
+        {
+            if (Dropfile != "")
+                set_file(Dropfile);
+        }
+
+        private void button2_DragDrop(object sender, DragEventArgs e)
+        {
+
+            var file = (string[])e.Data.GetData(DataFormats.FileDrop);
+            if (file.Length > 0)
+            {
+                set_file(file[0]);
+                Dropfile = file[0];
+                
+                toolTipBtnUpdate.SetToolTip(buttonUdateLastFile, "Обновить "+Dropfile);
+                
             }
         }
     }

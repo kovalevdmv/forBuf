@@ -43,7 +43,7 @@ namespace forBuf
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.autoCopy = new System.Windows.Forms.CheckBox();
-            this.autoPaste = new System.Windows.Forms.CheckBox();
+            this.buttonUdateLastFile = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,7 +76,7 @@ namespace forBuf
             this.button2.AllowDrop = true;
             this.button2.Location = new System.Drawing.Point(12, 12);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(210, 43);
+            this.button2.Size = new System.Drawing.Size(161, 43);
             this.button2.TabIndex = 2;
             this.button2.Text = "set";
             this.button2.UseVisualStyleBackColor = true;
@@ -156,23 +156,24 @@ namespace forBuf
             this.autoCopy.AutoSize = true;
             this.autoCopy.Location = new System.Drawing.Point(12, 628);
             this.autoCopy.Name = "autoCopy";
-            this.autoCopy.Size = new System.Drawing.Size(107, 29);
+            this.autoCopy.Size = new System.Drawing.Size(140, 29);
             this.autoCopy.TabIndex = 4;
-            this.autoCopy.Text = "auto set";
+            this.autoCopy.Text = "auto set/get";
             this.autoCopy.UseVisualStyleBackColor = true;
             this.autoCopy.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // autoPaste
+            // buttonUdateLastFile
             // 
-            this.autoPaste.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.autoPaste.AutoSize = true;
-            this.autoPaste.Location = new System.Drawing.Point(125, 628);
-            this.autoPaste.Name = "autoPaste";
-            this.autoPaste.Size = new System.Drawing.Size(108, 29);
-            this.autoPaste.TabIndex = 5;
-            this.autoPaste.Text = "auto get";
-            this.autoPaste.UseVisualStyleBackColor = true;
-            this.autoPaste.CheckedChanged += new System.EventHandler(this.autoPaste_CheckedChanged);
+            this.buttonUdateLastFile.AutoSize = true;
+            this.buttonUdateLastFile.BackgroundImage = global::forBuf.Properties.Resources.vcsupdaterequired_93493;
+            this.buttonUdateLastFile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonUdateLastFile.Location = new System.Drawing.Point(179, 12);
+            this.buttonUdateLastFile.Name = "buttonUdateLastFile";
+            this.buttonUdateLastFile.Size = new System.Drawing.Size(43, 43);
+            this.buttonUdateLastFile.TabIndex = 5;
+            this.buttonUdateLastFile.Tag = "";
+            this.buttonUdateLastFile.UseVisualStyleBackColor = true;
+            this.buttonUdateLastFile.Click += new System.EventHandler(this.buttonUdateLastFile_Click);
             // 
             // Form1
             // 
@@ -181,7 +182,7 @@ namespace forBuf
             this.ClientSize = new System.Drawing.Size(234, 669);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.ControlBox = false;
-            this.Controls.Add(this.autoPaste);
+            this.Controls.Add(this.buttonUdateLastFile);
             this.Controls.Add(this.autoCopy);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -212,8 +213,8 @@ namespace forBuf
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
         private System.Windows.Forms.CheckBox autoCopy;
-        private System.Windows.Forms.CheckBox autoPaste;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.Button buttonUdateLastFile;
     }
 }
 
