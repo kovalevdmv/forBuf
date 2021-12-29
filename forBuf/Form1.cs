@@ -53,12 +53,14 @@ namespace forBuf
         public static bool press_ctrl_pre = false;
         public static bool press_c_pre = false;
         public static bool press_v_pre = false;
+        public static bool press_x_pre = false;
 
         public static bool au_copy = false;
         public static bool au_paste = false;
 
         public static bool ctrl_c = false;
         public static bool ctrl_v = false;
+        public static bool ctrl_x = false;
 
         #endregion
 
@@ -88,7 +90,7 @@ namespace forBuf
             if (vkCode != 0)
             {
 
-                if (ctrl_c && au_copy)
+                if (ctrl_c && au_copy || ctrl_x && au_copy)
                 {
                     set_buf();
                 }
@@ -97,9 +99,11 @@ namespace forBuf
                 bool press_ctrl = (wParam == (IntPtr)256 && vkCode == 162);
                 bool press_c = (wParam == (IntPtr)256 && vkCode == 67);
                 bool press_v = (wParam == (IntPtr)256 && vkCode == 86);
+                bool press_x = (wParam == (IntPtr)256 && vkCode == 88);
 
                 ctrl_c = (press_ctrl_pre && press_c || press_c_pre && press_ctrl);
-                ctrl_v = (press_ctrl_pre && press_v || press_c_pre && press_ctrl);
+                ctrl_v = (press_ctrl_pre && press_v || press_v_pre && press_ctrl);
+                ctrl_x = (press_ctrl_pre && press_x || press_x_pre && press_ctrl);
 
                 if (ctrl_v && au_paste)
                 {
@@ -108,6 +112,8 @@ namespace forBuf
 
                 press_ctrl_pre = press_ctrl;
                 press_c_pre = press_c;
+                press_v_pre = press_v;
+                press_x_pre = press_x;
 
             }
             return IntPtr.Zero;
