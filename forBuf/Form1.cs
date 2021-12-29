@@ -19,6 +19,7 @@ namespace forBuf
     {
         static String ip = "";
         static String key = "";
+        String version = "2";
         
 
         private static TextBox tBox1;
@@ -170,7 +171,7 @@ namespace forBuf
 
                     File.WriteAllBytes(file, Convert.FromBase64String(strText));
 
-                    add_text("download file ok");
+                    add_text(String.Format("download file ok ({0})", fileName));
                 }
 
             }
@@ -195,7 +196,7 @@ namespace forBuf
         private void set_sett()
         {
             notifyIcon1.Text = String.Format("{0}:{1}", ip, key);
-            Text = String.Format("Test ({0})", key);
+            Text = String.Format("Test ({0}) v{1}", key, version);
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -250,7 +251,8 @@ namespace forBuf
                     DateTime.Now.Hour.ToString(), 
                     DateTime.Now.Minute.ToString(),
                     DateTime.Now.Second.ToString(),
-                    text + Environment.NewLine);
+                    text + Environment.NewLine) 
+                ;
         }
 
         // SET
@@ -383,7 +385,7 @@ namespace forBuf
                 WebClient client = new WebClient();
                 var path = String.Format("http://{0}:80", ip);
                 client.UploadData(path, "POST", Encoding.UTF8.GetBytes(String.Format("key={0},fileInBase64Name={1},fileInBase64={2}", key, fileName, str_bin)));
-                add_text("upload file ok");
+                add_text(String.Format("upload file ok ({0})", fileName));
 
             }
             catch (Exception ex)
