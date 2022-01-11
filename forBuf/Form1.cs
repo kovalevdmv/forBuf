@@ -20,7 +20,7 @@ namespace forBuf
         static String ip = "";
         static String key = "";
         String version = "3";
-        
+
 
         private static TextBox tBox1;
 
@@ -79,7 +79,7 @@ namespace forBuf
 
             tBox1 = textBox1;
             au_copy = false;
-            au_paste= false;
+            au_paste = false;
 
             toolTipBtnUpdate = new ToolTip();
             toolTipBtnUpdate.SetToolTip(buttonUdateLastFile, "Обновить последний файл" + Dropfile);
@@ -186,7 +186,7 @@ namespace forBuf
         {
 
             get(key);
-            
+
             button4.Visible = check_new_ver();
 
         }
@@ -203,12 +203,13 @@ namespace forBuf
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            try { 
+            try
+            {
                 var sett = File.ReadAllText("sett.txt");
                 ip = Regex.Match(sett, @"(?<=ip=)\S*").ToString();
                 key = Regex.Match(sett, @"(?<=key=)\S*").ToString();
                 String keylist = Regex.Match(sett, @"(?<=keylist=)\S*").ToString();
-                foreach(var i in keylist.Split(','))
+                foreach (var i in keylist.Split(','))
                 {
                     var item1 = new System.Windows.Forms.ToolStripMenuItem();
                     item1.Image = global::forBuf.Properties.Resources.security_protection_protect_key_password_login_108554;
@@ -221,12 +222,14 @@ namespace forBuf
                 set_sett();
 
                 sett_forn_for_curr_item();
-                
-            } catch (Exception ex) {
-            
+
+            }
+            catch (Exception ex)
+            {
+
                 textBox1.Text += ex.ToString();
             }
-}
+        }
 
 
         private static void set_buf()
@@ -250,11 +253,11 @@ namespace forBuf
             if (tBox1.Lines.Length > 20)
                 tBox1.Text = "";
 
-            tBox1.Text = String.Format("[{0}:{1}:{2}] {3}", 
-                    DateTime.Now.Hour.ToString(), 
+            tBox1.Text = String.Format("[{0}:{1}:{2}] {3}",
+                    DateTime.Now.Hour.ToString(),
                     DateTime.Now.Minute.ToString(),
                     DateTime.Now.Second.ToString(),
-                    text + Environment.NewLine) 
+                    text + Environment.NewLine)
                 ;
         }
 
@@ -293,17 +296,17 @@ namespace forBuf
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+
             WindowState = FormWindowState.Minimized;
             // прячем наше окно из панели
             this.ShowInTaskbar = false;
-                // делаем нашу иконку в трее активной
-                notifyIcon1.Visible = true;
+            // делаем нашу иконку в трее активной
+            notifyIcon1.Visible = true;
         }
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            this.ShowInTaskbar = ! this.ShowInTaskbar;
+            this.ShowInTaskbar = !this.ShowInTaskbar;
             if (this.ShowInTaskbar)
                 WindowState = FormWindowState.Normal;
             else
@@ -336,7 +339,7 @@ namespace forBuf
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
                 e.Effect = DragDropEffects.Copy;
-                
+
             }
         }
 
@@ -411,13 +414,13 @@ namespace forBuf
             try
             {
                 WebClient client = new WebClient();
-            var path = String.Format("http://{0}/?curVer=get", ip);
-            var Text = client.DownloadString(path);
-            byte[] newBytes = Convert.FromBase64String(Text);
+                var path = String.Format("http://{0}/?curVer=get", ip);
+                var Text = client.DownloadString(path);
+                byte[] newBytes = Convert.FromBase64String(Text);
 
-            var newVerStr = Encoding.UTF8.GetString(newBytes);
-            add_text(newVerStr);
-            
+                var newVerStr = Encoding.UTF8.GetString(newBytes);
+                add_text(newVerStr);
+
                 int oldVer = int.Parse(version);
                 int newVer = int.Parse(newVerStr);
                 if (newVer > oldVer)
@@ -429,7 +432,7 @@ namespace forBuf
 
             catch (Exception ex)
             {
-              
+
             }
         }
 
@@ -438,26 +441,26 @@ namespace forBuf
             try
             {
                 WebClient client = new WebClient();
-            var path = String.Format("http://{0}/?curVer=get", ip);
-            var Text = client.DownloadString(path);
-            byte[] newBytes = Convert.FromBase64String(Text);
+                var path = String.Format("http://{0}/?curVer=get", ip);
+                var Text = client.DownloadString(path);
+                byte[] newBytes = Convert.FromBase64String(Text);
 
-            var newVerStr = Encoding.UTF8.GetString(newBytes);
+                var newVerStr = Encoding.UTF8.GetString(newBytes);
                 int oldVer = int.Parse(version);
                 int newVer = int.Parse(newVerStr);
                 if (newVer > oldVer)
                 {
                     return true;
                 }
-            
+
             }
 
-                catch (Exception ex)
-                {
-                    
-                }
+            catch (Exception ex)
+            {
 
-                return false;
+            }
+
+            return false;
         }
 
         private void button2_DragDrop(object sender, DragEventArgs e)
@@ -468,9 +471,9 @@ namespace forBuf
             {
                 set_file(file[0]);
                 Dropfile = file[0];
-                
-                toolTipBtnUpdate.SetToolTip(buttonUdateLastFile, "Обновить "+Dropfile);
-                
+
+                toolTipBtnUpdate.SetToolTip(buttonUdateLastFile, "Обновить " + Dropfile);
+
             }
         }
     }
