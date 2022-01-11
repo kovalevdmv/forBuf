@@ -18,15 +18,27 @@ func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 
 		if r.Method == "GET" {
+
 			key := r.URL.Query().Get("key")
-
-			dat, err := os.ReadFile(key)
-			if err != nil {
-				fmt.Fprintf(w, base64.StdEncoding.EncodeToString([]byte("null")))
+			if key != "" {
+				dat, err := os.ReadFile(key)
+				if err != nil {
+					fmt.Fprintf(w, base64.StdEncoding.EncodeToString([]byte("null")))
+				}
+				fmt.Fprintf(w, base64.StdEncoding.EncodeToString([]byte(string(dat))))
+				log.Println("ok get for key=" + key)
 			}
-			fmt.Fprintf(w, base64.StdEncoding.EncodeToString([]byte(string(dat))))
-			log.Println("ok get for key=" + key)
 
+			curVer := r.URL.Query().Get("curVer")
+			if curVer != "" {
+				dat, err := os.ReadFile("curVer")
+				if err != nil {
+					fmt.Fprintf(w, base64.StdEncoding.EncodeToString([]byte("null")))
+				}
+				_ver := base64.StdEncoding.EncodeToString([]byte(string(dat)))
+				fmt.Fprintf(w, _ver)
+				log.Println("ok get curVer=" + _ver)
+			}
 			return
 		}
 

@@ -19,7 +19,7 @@ namespace forBuf
     {
         static String ip = "";
         static String key = "";
-        String version = "2";
+        String version = "3";
         
 
         private static TextBox tBox1;
@@ -108,7 +108,7 @@ namespace forBuf
 
                 if (ctrl_v && au_paste)
                 {
-                    get();
+                    get(key);
                 }
 
                 press_ctrl_pre = press_ctrl;
@@ -120,12 +120,12 @@ namespace forBuf
             return IntPtr.Zero;
         }
 
-        static void get()
+        static void get(String _key)
         {
             try
             {
                 WebClient client = new WebClient();
-                var path = String.Format("http://{0}/?get=1&key={1}", ip, key);
+                var path = String.Format("http://{0}/?get=1&key={1}", ip, _key);
                 var Text = client.DownloadString(path);
                 byte[] newBytes = Convert.FromBase64String(Text);
 
@@ -135,7 +135,8 @@ namespace forBuf
                 {
                     var Slug = Regex.Match(strText, "key=.*?clipboard=").ToString();
                     strText = strText.Replace(Slug, "");
-                    Clipboard.SetText(strText);
+                    if (strText != "")
+                        Clipboard.SetText(strText);
 
                     add_text("get buff ok");
                 }
@@ -184,7 +185,9 @@ namespace forBuf
         private void button1_Click(object sender, EventArgs e)
         {
 
-            get();
+            get(key);
+            
+            button4.Visible = check_new_ver();
 
         }
 
@@ -247,7 +250,7 @@ namespace forBuf
             if (tBox1.Lines.Length > 20)
                 tBox1.Text = "";
 
-            tBox1.Text += String.Format("[{0}:{1}:{2}] {3}", 
+            tBox1.Text = String.Format("[{0}:{1}:{2}] {3}", 
                     DateTime.Now.Hour.ToString(), 
                     DateTime.Now.Minute.ToString(),
                     DateTime.Now.Second.ToString(),
@@ -259,6 +262,9 @@ namespace forBuf
         private void button2_Click(object sender, EventArgs e)
         {
             set_buf();
+
+            button4.Visible = check_new_ver();
+
         }
 
         void sett_forn_for_curr_item()
@@ -287,7 +293,7 @@ namespace forBuf
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            
             WindowState = FormWindowState.Minimized;
             // прячем наше окно из панели
             this.ShowInTaskbar = false;
@@ -398,6 +404,60 @@ namespace forBuf
         {
             if (Dropfile != "")
                 set_file(Dropfile);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                WebClient client = new WebClient();
+            var path = String.Format("http://{0}/?curVer=get", ip);
+            var Text = client.DownloadString(path);
+            byte[] newBytes = Convert.FromBase64String(Text);
+
+            var newVerStr = Encoding.UTF8.GetString(newBytes);
+            add_text(newVerStr);
+            
+                int oldVer = int.Parse(version);
+                int newVer = int.Parse(newVerStr);
+                if (newVer > oldVer)
+                {
+                    add_text("Доступна новая версия");
+                    get("newVer");
+                }
+            }
+
+            catch (Exception ex)
+            {
+              
+            }
+        }
+
+        private bool check_new_ver()
+        {
+            try
+            {
+                WebClient client = new WebClient();
+            var path = String.Format("http://{0}/?curVer=get", ip);
+            var Text = client.DownloadString(path);
+            byte[] newBytes = Convert.FromBase64String(Text);
+
+            var newVerStr = Encoding.UTF8.GetString(newBytes);
+                int oldVer = int.Parse(version);
+                int newVer = int.Parse(newVerStr);
+                if (newVer > oldVer)
+                {
+                    return true;
+                }
+            
+            }
+
+                catch (Exception ex)
+                {
+                    
+                }
+
+                return false;
         }
 
         private void button2_DragDrop(object sender, DragEventArgs e)

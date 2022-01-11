@@ -44,6 +44,7 @@ namespace forBuf
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.autoCopy = new System.Windows.Forms.CheckBox();
             this.buttonUdateLastFile = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +64,7 @@ namespace forBuf
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox1.Location = new System.Drawing.Point(12, 157);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -112,27 +113,27 @@ namespace forBuf
             this.closeToolStripMenuItem,
             this.toolStripSeparator1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(271, 192);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(135, 154);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // setToolStripMenuItem
             // 
             this.setToolStripMenuItem.Name = "setToolStripMenuItem";
-            this.setToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
+            this.setToolStripMenuItem.Size = new System.Drawing.Size(134, 36);
             this.setToolStripMenuItem.Text = "set";
             this.setToolStripMenuItem.Click += new System.EventHandler(this.setToolStripMenuItem_Click);
             // 
             // getToolStripMenuItem
             // 
             this.getToolStripMenuItem.Name = "getToolStripMenuItem";
-            this.getToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
+            this.getToolStripMenuItem.Size = new System.Drawing.Size(134, 36);
             this.getToolStripMenuItem.Text = "get";
             this.getToolStripMenuItem.Click += new System.EventHandler(this.getToolStripMenuItem_Click);
             // 
             // showToolStripMenuItem
             // 
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(134, 36);
             this.showToolStripMenuItem.Text = "show";
             this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
             // 
@@ -141,14 +142,14 @@ namespace forBuf
             this.closeToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.closeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(134, 36);
             this.closeToolStripMenuItem.Text = "close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(267, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(131, 6);
             // 
             // autoCopy
             // 
@@ -175,6 +176,18 @@ namespace forBuf
             this.buttonUdateLastFile.UseVisualStyleBackColor = true;
             this.buttonUdateLastFile.Click += new System.EventHandler(this.buttonUdateLastFile_Click);
             // 
+            // button4
+            // 
+            this.button4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button4.Location = new System.Drawing.Point(12, 566);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(210, 50);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "NEW VERSION";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Visible = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -182,6 +195,7 @@ namespace forBuf
             this.ClientSize = new System.Drawing.Size(234, 669);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.ControlBox = false;
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.buttonUdateLastFile);
             this.Controls.Add(this.autoCopy);
             this.Controls.Add(this.button3);
@@ -214,6 +228,7 @@ namespace forBuf
         private System.Windows.Forms.CheckBox autoCopy;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.Button buttonUdateLastFile;
+        private System.Windows.Forms.Button button4;
     }
 }
 
