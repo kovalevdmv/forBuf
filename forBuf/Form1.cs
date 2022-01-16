@@ -19,7 +19,7 @@ namespace forBuf
     {
         static String ip = "";
         static String key = "";
-        String version = "3";
+        String version = "5";
 
 
         private static TextBox tBox1;
@@ -64,6 +64,8 @@ namespace forBuf
         public static bool ctrl_x = false;
 
         #endregion
+
+        static String lastDir = "";
 
         public Form1()
         {
@@ -151,11 +153,15 @@ namespace forBuf
 
                     using (var fbd = new FolderBrowserDialog())
                     {
+                        if (lastDir!="")
+                            fbd.SelectedPath = lastDir;
+                        fbd.Description = "Место сохранения файла";
                         DialogResult result = fbd.ShowDialog();
 
                         if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                         {
                             dir = fbd.SelectedPath;
+                            lastDir = dir;
                         }
                     }
 

@@ -64,6 +64,7 @@ namespace forBuf
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox1.ContextMenuStrip = this.contextMenuStrip1;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox1.Location = new System.Drawing.Point(12, 157);
             this.textBox1.Multiline = true;
@@ -113,27 +114,27 @@ namespace forBuf
             this.closeToolStripMenuItem,
             this.toolStripSeparator1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(135, 154);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(271, 192);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // setToolStripMenuItem
             // 
             this.setToolStripMenuItem.Name = "setToolStripMenuItem";
-            this.setToolStripMenuItem.Size = new System.Drawing.Size(134, 36);
+            this.setToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
             this.setToolStripMenuItem.Text = "set";
             this.setToolStripMenuItem.Click += new System.EventHandler(this.setToolStripMenuItem_Click);
             // 
             // getToolStripMenuItem
             // 
             this.getToolStripMenuItem.Name = "getToolStripMenuItem";
-            this.getToolStripMenuItem.Size = new System.Drawing.Size(134, 36);
+            this.getToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
             this.getToolStripMenuItem.Text = "get";
             this.getToolStripMenuItem.Click += new System.EventHandler(this.getToolStripMenuItem_Click);
             // 
             // showToolStripMenuItem
             // 
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(134, 36);
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
             this.showToolStripMenuItem.Text = "show";
             this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
             // 
@@ -142,14 +143,14 @@ namespace forBuf
             this.closeToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.closeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(134, 36);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(270, 36);
             this.closeToolStripMenuItem.Text = "close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(131, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(267, 6);
             // 
             // autoCopy
             // 
