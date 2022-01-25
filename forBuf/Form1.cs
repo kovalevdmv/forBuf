@@ -19,7 +19,7 @@ namespace forBuf
     {
         static String ip = "";
         static String key = "";
-        String version = "5";
+        String version = "6";
 
 
         private static TextBox tBox1;
@@ -122,13 +122,13 @@ namespace forBuf
             return IntPtr.Zero;
         }
 
-        static void get(String _key)
+        async static void get(String _key)
         {
             try
             {
                 WebClient client = new WebClient();
                 var path = String.Format("http://{0}/?get=1&key={1}", ip, _key);
-                var Text = client.DownloadString(path);
+                var Text = await client.DownloadStringTaskAsync(path);
                 byte[] newBytes = Convert.FromBase64String(Text);
 
                 var strText = Encoding.UTF8.GetString(newBytes);
@@ -145,6 +145,7 @@ namespace forBuf
 
                 if (strText.Contains("fileInBase64="))
                 {
+
                     var fileName = Regex.Match(strText, "(?<=fileInBase64Name=).*?(?=,)").ToString();
                     var Slug = Regex.Match(strText, "key=.*?fileInBase64=").ToString();
                     strText = strText.Replace(Slug, "");
@@ -190,6 +191,8 @@ namespace forBuf
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            add_text("Загрузка данных...");
 
             get(key);
 
@@ -388,10 +391,11 @@ namespace forBuf
 
         }
 
-        void set_file(String file)
+        async void set_file(String file)
         {
             try
             {
+                
                 //var file = (string[])e.Data.GetData(DataFormats.FileDrop);
                 var mf = file.Split('\\');
                 var fileName = mf[mf.Length - 1];
@@ -399,7 +403,7 @@ namespace forBuf
 
                 WebClient client = new WebClient();
                 var path = String.Format("http://{0}:80", ip);
-                client.UploadData(path, "POST", Encoding.UTF8.GetBytes(String.Format("key={0},fileInBase64Name={1},fileInBase64={2}", key, fileName, str_bin)));
+                await client.UploadDataTaskAsync(new Uri(path), "POST", Encoding.UTF8.GetBytes(String.Format("key={0},fileInBase64Name={1},fileInBase64={2}", key, fileName, str_bin)));
                 add_text(String.Format("upload file ok ({0})", fileName));
 
             }
@@ -475,6 +479,7 @@ namespace forBuf
             var file = (string[])e.Data.GetData(DataFormats.FileDrop);
             if (file.Length > 0)
             {
+                add_text("Идет загрузка..");
                 set_file(file[0]);
                 Dropfile = file[0];
 
